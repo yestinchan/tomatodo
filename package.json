@@ -1,0 +1,23 @@
+{
+  "name": "tomatodo",
+  "version": "0.0.1",
+  "description": "another todo manager",
+  "main": "background.js",
+  "repository" :{
+    "type" : "git",
+    "url" : "http://github.com/yestinchan/tomatodo.git"
+  },
+  "author": "YestinChan",
+  "email" : "yestinmail@gmail.com",
+  "license": "GPL",
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "grunt-contrib-coffee": "~0.7.0",
+    "grunt-contrib-watch": "~0.5.1",
+    "grunt-contrib-concat": "~0.3.0",
+    "grunt-contrib-uglify": "~0.2.2"
+  },
+  "bugs":{
+    "url" : "http://github.com/yestinchan/tomatodo/issue"
+  }
+}
