@@ -1,6 +1,6 @@
 {
   "name": "tomatodo",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "another todo manager",
   "main": "background.js",
   "repository" :{
@@ -11,11 +11,15 @@
   "email" : "yestinmail@gmail.com",
   "license": "GPL",
   "devDependencies": {
-    "grunt": "~0.4.1",
+    "grunt": "~0.4.2",
+    "grunt-contrib-clean": "~0.5.0",
     "grunt-contrib-coffee": "~0.7.0",
+    "grunt-remove-logging": "~0.2.0",
     "grunt-contrib-watch": "~0.5.1",
     "grunt-contrib-concat": "~0.3.0",
-    "grunt-contrib-uglify": "~0.2.2"
+    "grunt-contrib-uglify": "~0.2.2",
+    "grunt-contrib-copy": "~0.4.1",
+    "grunt-recess": "~0.5.0"
   },
   "bugs":{
     "url" : "http://github.com/yestinchan/tomatodo/issue"

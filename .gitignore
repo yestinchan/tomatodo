@@ -1,0 +1,13 @@
+# Node js modules #
+node_modules/*
+
+#virtualenv 
+.env/*
+
+# python #
+*.pyc
+config.py
+
+#gen files#
+static/css/*
+static/js/*

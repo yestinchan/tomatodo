@@ -1,0 +1,6 @@
+MarkupSafe==0.18
+backports.ssl-match-hostname==3.4.0.2
+py-bcrypt==0.4
+requests==2.2.1
+simplejson==3.3.3
+tornado==3.2
