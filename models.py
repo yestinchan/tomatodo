@@ -22,7 +22,7 @@ class TODOItem(object):
     
     table = 'todos'
 
-    def __init__(self,id=None,content=None,user=None,created=None,finished=None):
+    def __init__(self,id=None,content=None,user_id=None,created=None,finished=None):
         if not content:
             raise RuntimeError("must be some content")
         if not created:
@@ -30,7 +30,7 @@ class TODOItem(object):
         self.id = id
         self.content = content
         self.created = created
-        self.user = user
+        self.user_id = user_id
         self.finished = finished
         #connection
         self.dbhelper = DBHelper()
@@ -54,7 +54,7 @@ class TODOItem(object):
         conn = self.dbhelper.conn()
         cursor = conn.cursor()
         sql = "insert into {0} values (null,'{1}',{2},'{3}',null)"\
-            .format(self.table,it.content,it.user,it.created.strftime("%y-%m-%d %H:%M:%S"))
+            .format(self.table,it.content,it.user_id,it.created.strftime("%y-%m-%d %H:%M:%S"))
         print sql
         nums = cursor.execute(sql)
         conn.commit()
@@ -79,8 +79,61 @@ class TODOItem(object):
         conn.close()
         return nums > 0
 
+class TODOToday(object):
+    table = "todaylist"
+    maintable = "todos"
+
+    def list(self):
+        '''
+        List today todos
+        '''
+        conn = self.dbhelper.conn()
+        cursor = conn.cursor()
+        sql = "select * from {0},{1} \
+            where {0}.id = {1}.todo_id and to_days({1}\
+            .added)=to_days(now())".format(self.maintable,self.table)
+        nums = cursor.execute(sql)
+        result =  cursor.fetchall()
+        cursor.close()
+        conn.close()
+        return result
+
+    def add(self,row):
+        
+
+    def set(self,row,item,value):
+        conn = self.dbhelper.conn()
+        cursor = conn.cursor()
+        sql = "update {0} set {1} = {2} \
+            where {0}.id = {3}".format(self.table,item,value,row)
+        nums = cursor.execute(sql)
+        conn.commit()
+        cursor.close()
+        conn.close()
+        return nums > 0
+
+class TODOHistory(object):
+    table = "dohistory"
+    maintable = "todos"
+
+    def list(self):
+        '''
+        History overview
+        '''
+        pass
+
+    def start(self):
+        pass
+
+    def finish(self):
+        pass
+
+    def addInterrupt(self):
+        pass
+
+
 if __name__ == "__main__":
-    item = TODOItem(id=2,content="First todo",user=1)
+    item = TODOItem(id=2,content="First todo",user_id=1)
     #item.save()
     item.list()
     item.delete()

@@ -3,7 +3,10 @@ create table todos(
     content varchar(500) not null,
     user_id int(10) not null,
     created datetime ,
-    finished datetime 
+    started datetime,
+    finished datetime,
+    broken int(1),
+    interrupt int(5)
 );
 
 create table user(
@@ -17,12 +20,4 @@ create table todaylist(
     added datetime,
     total_tomato int(5),
     used_tomato int(5)
-);
-
-create table dohistory(
-    todo_id int(10),
-    start_time datetime,
-    end_time datetime,
-    broken int(1),
-    interrupt int(5)
 );

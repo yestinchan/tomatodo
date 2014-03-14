@@ -1,2 +1,2 @@
 #Tomatodo
-其实主要是用来练习tornado和coffee script的
+其实主要是用来练习tornado和angularjs的
